@@ -66,6 +66,6 @@ jobs:
       with:
         azcliversion: 2.0.72
         inlineScript: |
-          az storage blob upload-batch --destination '$web' --source ./tabs/build --account-name sharenowdevb1ed1dtab  --account-key ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }}
+          az storage blob upload-batch --destination '$web' --source ./tabs/build --account-name sharenowdev5e69eftab  --account-key ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }}
 
 
