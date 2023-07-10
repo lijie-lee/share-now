@@ -56,7 +56,7 @@ jobs:
     - name: Build frontend
       run: cd tabs && npm run build
       env:
-        REACT_APP_CLIENT_ID: 5b977538-41ca-4fee-86d0-105bde40324a
+        REACT_APP_CLIENT_ID: bda2fd61-0bbe-4b6d-8ded-60090fc39c86
         REACT_APP_START_LOGIN_PAGE_URL: https://sharenowdev5e69eftab.z13.web.core.windows.net/auth-start.html
         REACT_APP_FUNC_ENDPOINT: https://sharenowdev5e69efapi.azurewebsites.net
         REACT_APP_FUNC_NAME: posts
