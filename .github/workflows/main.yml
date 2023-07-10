@@ -1,0 +1,52 @@
+name: Deploy to Azure
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 16
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Build frontend
+      run: cd tabs && npm run build
+
+    - name: Deploy frontend to Azure Storage
+      uses: azure/CLI@v1
+      with:
+        azcliversion: 2.0.72
+        inlineScript: |
+          az storage blob upload-batch --destination '$web' --source ./tabs/build --account-name sharenowdevb1ed1dapi --account-key ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }}
+
+    - name: Build backend
+      run: cd api && npm run build
+
+    - name: Deploy backend to Azure Functions
+      uses: azure/functions-action@v1
+      with:
+        app-name: sharenowdevb1ed1dapi
+        publish-profile: ${{ secrets.AZURE_FUNCTIONS_PUBLISH_PROFILE }}
+        package: ./api
+
+    - name: Build bot
+      run: cd bot && npm run build
+
+    - name: Deploy bot to Azure App Service
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: sharenowdevb1ed1dbot
+        publish-profile: ${{ secrets.AZURE_APP_SERVICE_PUBLISH_PROFILE }}
+        package: ./bot
