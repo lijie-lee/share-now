@@ -49,7 +49,7 @@ jobs:
     - name: Deploy bot to Azure App Service
       uses: azure/webapps-deploy@v2
       with:
-        app-name: sharenowdevb1ed1dbot
+        app-name: sharenowdev5e69efbot
         publish-profile: ${{ secrets.AZURE_APP_SERVICE_PUBLISH_PROFILE }}
         package: ./bot
       
