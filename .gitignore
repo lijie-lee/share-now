@@ -23,3 +23,5 @@ lib
 
 # Dev tool directories
 /devTools/
+
+node_modules
