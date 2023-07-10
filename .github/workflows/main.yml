@@ -24,21 +24,7 @@ jobs:
         cd api && npm ci && cd ..
         cd bot && npm ci && cd ..
         
-    - name: Build frontend
-      run: cd tabs && npm run build
-      env:
-        REACT_APP_CLIENT_ID: 5b977538-41ca-4fee-86d0-105bde40324a
-        REACT_APP_START_LOGIN_PAGE_URL: https://sharenowdev5e69eftab.z13.web.core.windows.net/auth-start.html
-        REACT_APP_FUNC_ENDPOINT: https://sharenowdev5e69efapi.azurewebsites.net
-        REACT_APP_FUNC_NAME: posts
-
-    - name: Deploy frontend to Azure Storage
-      uses: azure/CLI@v1
-      with:
-        azcliversion: 2.0.72
-        inlineScript: |
-          az storage blob upload-batch --destination '$web' --source ./tabs/build --account-name sharenowdevb1ed1dtab  --account-key ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }}
-
+      
     - name: Build backend
       run: |
         cd api && npm run build
@@ -66,3 +52,20 @@ jobs:
         app-name: sharenowdevb1ed1dbot
         publish-profile: ${{ secrets.AZURE_APP_SERVICE_PUBLISH_PROFILE }}
         package: ./bot
+      
+    - name: Build frontend
+      run: cd tabs && npm run build
+      env:
+        REACT_APP_CLIENT_ID: 5b977538-41ca-4fee-86d0-105bde40324a
+        REACT_APP_START_LOGIN_PAGE_URL: https://sharenowdev5e69eftab.z13.web.core.windows.net/auth-start.html
+        REACT_APP_FUNC_ENDPOINT: https://sharenowdev5e69efapi.azurewebsites.net
+        REACT_APP_FUNC_NAME: posts
+
+    - name: Deploy frontend to Azure Storage
+      uses: azure/CLI@v1
+      with:
+        azcliversion: 2.0.72
+        inlineScript: |
+          az storage blob upload-batch --destination '$web' --source ./tabs/build --account-name sharenowdevb1ed1dtab  --account-key ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }}
+
+
