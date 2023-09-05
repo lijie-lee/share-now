@@ -37,7 +37,7 @@ jobs:
         cd api && dotnet build extensions.csproj -o bin --ignore-failed-sources
 
     - name: Deploy backend to Azure Functions
-      uses: azure/functions-action@v1.1.8
+      uses: azure/functions-action@v1
       with:
         app-name: sharenowdev06fe2capi
         slot-name: 'production'
