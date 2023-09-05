@@ -39,7 +39,7 @@ jobs:
     - name: Deploy backend to Azure Functions
       uses: azure/functions-action@v1
       with:
-        app-name: sharenowdev06fe2capi
+        app-name: sharenowdev06fe2capi2
         slot-name: 'production'
         publish-profile: ${{ secrets.AZURE_FUNCTIONS_PUBLISH_PROFILE }}
         package: ./api
@@ -59,7 +59,7 @@ jobs:
       env:
         REACT_APP_CLIENT_ID: 1d5d8631-09e4-4dfe-ad91-c8b692dd9c82
         REACT_APP_START_LOGIN_PAGE_URL: https://sharenowdev06fe2ctab.z13.web.core.windows.net/auth-start.html
-        REACT_APP_FUNC_ENDPOINT: https://sharenowdev06fe2capi.azurewebsites.net
+        REACT_APP_FUNC_ENDPOINT: https://sharenowdev06fe2capi2.azurewebsites.net
         REACT_APP_FUNC_NAME: posts
 
     - name: Deploy frontend to Azure Storage
