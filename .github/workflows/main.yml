@@ -8,6 +8,7 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
@@ -18,34 +19,51 @@ jobs:
         node-version: 16
 
     - name: Install dependencies
-      run: npm ci
-
+      run: |
+        cd tabs && npm ci && cd ..
+        cd api && npm ci && cd ..
+        cd bot && npm ci && cd ..
+      
     - name: Build backend
-      run: npm run build --prefix api
-
-    - name: Build bot
-      run: dotnet build api/extensions.csproj --configuration Release --output api/bin
+      run: |
+        cd api && npm run build
+    - name: Setup dotnet
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 3.1.x
+    - name: Build backend dotnet
+      run: |
+        cd api && dotnet build extensions.csproj -o bin --ignore-failed-sources
 
     - name: Deploy backend to Azure Functions
       uses: azure/functions-action@v1
       with:
-        app-name: <YOUR_AZURE_FUNCTIONS_APP_NAME>
-        package: api
-        publish-profile: xxxx
+        app-name: sharenowdev7db8feapi
+        slot-name: 'production'
+        publish-profile: ${{ secrets.AZURE_FUNCTIONS_PUBLISH_PROFILE }}
+        package: ./api
+
+    - name: Build bot
+      run: cd bot && npm run build
 
     - name: Deploy bot to Azure App Service
       uses: azure/webapps-deploy@v2
       with:
-        app-name: <YOUR_AZURE_APP_SERVICE_NAME>
+        app-name: sharenowdev7db8febot
         publish-profile: ${{ secrets.AZURE_APP_SERVICE_PUBLISH_PROFILE }}
-        package: bot
-
+        package: ./bot
+      
     - name: Build frontend
-      run: npm run build --prefix tabs
+      run: cd tabs && npm run build
+      env:
+        REACT_APP_CLIENT_ID: 17fa0bbd-c8e9-4982-b016-c983803d4db4
+        REACT_APP_START_LOGIN_PAGE_URL: https://sharenowdev7db8fetab.z13.web.core.windows.net/auth-start.html
+        REACT_APP_FUNC_ENDPOINT: https://sharenowdev7db8feapi.azurewebsites.net
+        REACT_APP_FUNC_NAME: posts
 
     - name: Deploy frontend to Azure Storage
       uses: azure/CLI@v1
       with:
         azcliversion: 2.0.72
         inlineScript: |
-          az storage blob upload-batch --destination '$web' --source ./tabs/build --account-name xxxx  --account-key ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }}
+          az storage blob upload-batch --destination '$web' --source ./tabs/build --account-name sharenowdev7db8fetab --account-key ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }}
