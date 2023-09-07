@@ -22,7 +22,6 @@ jobs:
       run: |
         cd tabs && npm ci && cd ..
         cd api && npm ci && cd ..
-        cd bot && npm ci && cd ..
       
     - name: Build backend
       run: |
