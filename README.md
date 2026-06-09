@@ -1,4 +1,4 @@
-# Getting Started With Share Now Sample
+# Getting Started with the Share Now Sample
 
 Share Now promotes the exchange of information between colleagues by enabling users to share content within the Teams environment. Users engage the app to share items of interest and discover new shared content.
 
@@ -12,7 +12,7 @@ Share Now promotes the exchange of information between colleagues by enabling us
 - How to build message extension bot on Azure for your app.
 - How to connect to Azure SQL DB and how to do CRUD operations in DB.
 
-## Prerequisite
+## Prerequisites
 - [Node.js](https://nodejs.org/), supported versions: 16, 18
 - A Microsoft 365 account. If you do not have Microsoft 365 account, apply one from [Microsoft 365 developer program](https://developer.microsoft.com/en-us/microsoft-365/dev-program)
 - [Teams Toolkit Visual Studio Code Extension](https://aka.ms/teams-toolkit) version 5.0.0 and higher or [TeamsFx CLI](https://aka.ms/teamsfx-cli)
@@ -26,8 +26,8 @@ Share Now promotes the exchange of information between colleagues by enabling us
 1. Open **env/.env.dev.user** file, set value for `SQL_USER_NAME` and `SQL_PASSWORD`.
 1. Open the command palette and select: `Teams: Provision`. The toolkit will help you to provision Azure SQL.
 1. Once provision is completed, open the command palette and select: `Teams: Deploy`.
-1. Open **env/.env.dev** file, you could get the database name in `PROVISIONOUTPUT__AZURESQLOUTPUT__DATABASENAME` output. [Set IP address of your computer into server-level IP firewall rule from the database overview page](https://docs.microsoft.com/en-us/azure/azure-sql/database/firewall-configure#from-the-database-overview-page).
-1. In Azure portal, find the database by `databaseName` and use [query editor](https://docs.microsoft.com/en-us/azure/azure-sql/database/connect-query-portal) with below query to create a table:
+1. Open **env/.env.dev** and get the database name from `PROVISIONOUTPUT__AZURESQLOUTPUT__DATABASENAME`. [Set your computer's IP address in the server-level firewall rule from the database overview page](https://docs.microsoft.com/en-us/azure/azure-sql/database/firewall-configure#from-the-database-overview-page).
+1. In the Azure portal, find the database by `databaseName` and use [Query editor](https://docs.microsoft.com/en-us/azure/azure-sql/database/connect-query-portal) with the query below to create tables:
     ```sql
     CREATE TABLE [TeamPostEntity](
 	    [PostID] [int] PRIMARY KEY IDENTITY,
@@ -52,22 +52,22 @@ Share Now promotes the exchange of information between colleagues by enabling us
     GO
     ```
 ### Preview the app in Teams
-1. Once deployment is completed, you can preview the app running in Azure. In Visual Studio Code, open `Run and Debug` and select `Launch Remote (Edge)` or `Launch Remote (Chrome)` in the dropdown list and Press `F5` or green arrow button to open a browser.
+1. Once deployment is complete, you can preview the app running in Azure. In Visual Studio Code, open `Run and Debug`, select `Launch Remote (Edge)` or `Launch Remote (Chrome)` in the dropdown list, and press `F5` (or the green arrow button) to open a browser.
 1. The app will look like this when it runs for the first time:
 
 	![Share Now](images/StartPage.png)
 
-1. You can add new content by clicking "Suggest content" button.
+1. You can add new content by clicking the "Suggest content" button.
 1. You can update content created by you by clicking "..." and then choose "update" button.
 1. You can delete content created by you by clicking "..." and then choose "delete" button.
-1. You can add/delete your vote for the content by click the icon ![vote icon](images/voteIconME.png) in the content.
-1. You can search all/posted-by-me contents in compose box or command box by filtering based on title or tags of content and share with your colleagues.
+1. You can add or remove your vote for content by clicking the icon ![vote icon](images/voteIconME.png) on the content.
+1. You can search all content or content posted by you in the compose box or command box by filtering on title or tags, then share it with your colleagues.
 
 ### (Optional) Run the app locally
-To debug the project, you will need to configure an Azure SQL Database to be used locally:
+To debug the project locally, configure an Azure SQL Database:
 1. [Create an Azure SQL Database](https://docs.microsoft.com/en-us/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal)
-1. [Add IP address of your computer into allowlist of firewall of Azure SQL Server](https://docs.microsoft.com/en-us/azure/azure-sql/database/firewall-configure#from-the-database-overview-page)
-1. Use [query editor](https://docs.microsoft.com/en-us/azure/azure-sql/database/connect-query-portal) with below query to create tables:
+1. [Add your computer's IP address to the Azure SQL Server firewall allowlist](https://docs.microsoft.com/en-us/azure/azure-sql/database/firewall-configure#from-the-database-overview-page)
+1. Use [Query editor](https://docs.microsoft.com/en-us/azure/azure-sql/database/connect-query-portal) with the query below to create tables:
     ```sql
     CREATE TABLE [TeamPostEntity](
 	    [PostID] [int] PRIMARY KEY IDENTITY,
@@ -101,7 +101,7 @@ To debug the project, you will need to configure an Azure SQL Database to be use
     SQL_USER_NAME=
     SQL_PASSWORD=
     ```
-1. Open Debug View (`Ctrl+Shift+D`) and select "Debug (Edge)" or "Debug (Chrome)" in dropdown list.
+1. Open Debug View (`Ctrl+Shift+D`) and select "Debug (Edge)" or "Debug (Chrome)" in the dropdown list.
 1. Press "F5" to open a browser window and then select your package to view share now sample app.
 
 
