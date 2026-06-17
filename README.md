@@ -28,7 +28,7 @@ Share Now promotes knowledge sharing between colleagues by enabling users to sha
 1. Open the command palette and select `Teams: Provision`. The toolkit will provision Azure SQL resources for you.
 1. After provisioning completes, open the command palette and select `Teams: Deploy`.
 1. Open **env/.env.dev** and find the database name in `PROVISIONOUTPUT__AZURESQLOUTPUT__DATABASENAME`. [Add your computer's IP address to the server-level firewall rule from the database overview page](https://docs.microsoft.com/en-us/azure/azure-sql/database/firewall-configure#from-the-database-overview-page).
-1. In the Azure portal, locate the database by `databaseName` and use the [query editor](https://docs.microsoft.com/en-us/azure/azure-sql/database/connect-query-portal) with the following query to create the tables:
+1. In the Azure portal, locate the database by using the name from `PROVISIONOUTPUT__AZURESQLOUTPUT__DATABASENAME`, then use the [query editor](https://docs.microsoft.com/en-us/azure/azure-sql/database/connect-query-portal) with the following query to create the tables:
     ```sql
     CREATE TABLE [TeamPostEntity](
 	    [PostID] [int] PRIMARY KEY IDENTITY,
@@ -59,8 +59,8 @@ Share Now promotes knowledge sharing between colleagues by enabling users to sha
 	![Share Now](images/StartPage.png)
 
 1. You can add new content by clicking the "Suggest content" button.
-1. You can update content you created by clicking "..." and then choosing "Update".
-1. You can delete content you created by clicking "..." and then choosing "Delete".
+1. You can update content you created by clicking "..." and then choosing "update".
+1. You can delete content you created by clicking "..." and then choosing "delete".
 1. You can add or remove your vote for content by clicking the ![vote icon](images/voteIconME.png) icon on the item.
 1. You can search all content or only content posted by you in the compose box or command box by filtering on the title or tags, then share it with your colleagues.
 
