@@ -64,8 +64,8 @@ Share Now helps colleagues exchange information in Microsoft Teams. Users can sh
 	![Share Now](images/StartPage.png)
 
 1. Add new content by selecting the **Suggest content** button.
-1. Update content that you created by selecting the three-dot menu (`...`) and then **Update**.
-1. Delete content that you created by selecting the three-dot menu (`...`) and then **Delete**.
+1. Update content that you created by selecting the three-dot menu (`...`) and then `Update`.
+1. Delete content that you created by selecting the three-dot menu (`...`) and then `Delete`.
 1. Add or remove your vote by selecting the ![vote icon](images/voteIconME.png) icon on a post.
 1. Search all content or only your own content in the compose box or command box by filtering on the title or tags.
 
