@@ -4,7 +4,7 @@ Share Now promotes the exchange of information between colleagues by enabling us
 
 ![Share Now](images/shareNow.gif)
 
-> Note: This sample will only provision [single tenant](https://learn.microsoft.com/azure/active-directory/develop/single-and-multi-tenant-apps#who-can-sign-in-to-your-app) Azure Active Directory app. For multi-tenant support, please refer to this [wiki](https://aka.ms/teamsfx-multi-tenant).
+> Note: This sample will only provision [single tenant](https://learn.microsoft.com/entra/identity-platform/single-and-multi-tenant-apps#who-can-sign-in-to-your-app) Microsoft Entra app. For multi-tenant support, please refer to this [wiki](https://aka.ms/teamsfx-multi-tenant).
 
 ## This sample illustrates
 - How to build frontend hosting on Azure for your tab app.
@@ -12,22 +12,22 @@ Share Now promotes the exchange of information between colleagues by enabling us
 - How to build message extension bot on Azure for your app.
 - How to connect to Azure SQL DB and how to do CRUD operations in DB.
 
-## Prerequisite
-- [Node.js](https://nodejs.org/), supported versions: 16, 18
+## Prerequisites
+- [Node.js](https://nodejs.org/), supported versions: 18, 20
 - A Microsoft 365 account. If you do not have Microsoft 365 account, apply one from [Microsoft 365 developer program](https://developer.microsoft.com/en-us/microsoft-365/dev-program)
 - [Teams Toolkit Visual Studio Code Extension](https://aka.ms/teams-toolkit) version 5.0.0 and higher or [TeamsFx CLI](https://aka.ms/teamsfx-cli)
 - An [Azure subscription](https://azure.microsoft.com/en-us/free/)
 
 ## Minimal path to awesome
 ### Deploy the app to Azure
->Here are the instructions to run the sample in **Visual Studio Code**. You can also try to run the app using TeamsFx CLI tool, refer to [Try the Sample with TeamsFx CLI](cli.md)
+> Here are the instructions to run the sample in **Visual Studio Code**. You can also try to run the app using TeamsFx CLI tool, refer to [Try the Sample with TeamsFx CLI](cli.md)
 1. Clone the repo to your local workspace or directly download the source code.
 1. Open the project in Visual Studio Code.
 1. Open **env/.env.dev.user** file, set value for `SQL_USER_NAME` and `SQL_PASSWORD`.
 1. Open the command palette and select: `Teams: Provision`. The toolkit will help you to provision Azure SQL.
 1. Once provision is completed, open the command palette and select: `Teams: Deploy`.
-1. Open **env/.env.dev** file, you could get the database name in `PROVISIONOUTPUT__AZURESQLOUTPUT__DATABASENAME` output. [Set IP address of your computer into server-level IP firewall rule from the database overview page](https://docs.microsoft.com/en-us/azure/azure-sql/database/firewall-configure#from-the-database-overview-page).
-1. In Azure portal, find the database by `databaseName` and use [query editor](https://docs.microsoft.com/en-us/azure/azure-sql/database/connect-query-portal) with below query to create a table:
+1. Open **env/.env.dev** file, you could get the database name in `PROVISIONOUTPUT__AZURESQLOUTPUT__DATABASENAME` output. [Set IP address of your computer into server-level IP firewall rule from the database overview page](https://learn.microsoft.com/azure/azure-sql/database/firewall-configure#from-the-database-overview-page).
+1. In Azure portal, find the database by `databaseName` and use [query editor](https://learn.microsoft.com/azure/azure-sql/database/connect-query-portal) with below query to create a table:
     ```sql
     CREATE TABLE [TeamPostEntity](
 	    [PostID] [int] PRIMARY KEY IDENTITY,
@@ -60,14 +60,14 @@ Share Now promotes the exchange of information between colleagues by enabling us
 1. You can add new content by clicking "Suggest content" button.
 1. You can update content created by you by clicking "..." and then choose "update" button.
 1. You can delete content created by you by clicking "..." and then choose "delete" button.
-1. You can add/delete your vote for the content by click the icon ![vote icon](images/voteIconME.png) in the content.
+1. You can add/delete your vote for the content by clicking the icon ![vote icon](images/voteIconME.png) in the content.
 1. You can search all/posted-by-me contents in compose box or command box by filtering based on title or tags of content and share with your colleagues.
 
 ### (Optional) Run the app locally
 To debug the project, you will need to configure an Azure SQL Database to be used locally:
-1. [Create an Azure SQL Database](https://docs.microsoft.com/en-us/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal)
-1. [Add IP address of your computer into allowlist of firewall of Azure SQL Server](https://docs.microsoft.com/en-us/azure/azure-sql/database/firewall-configure#from-the-database-overview-page)
-1. Use [query editor](https://docs.microsoft.com/en-us/azure/azure-sql/database/connect-query-portal) with below query to create tables:
+1. [Create an Azure SQL Database](https://learn.microsoft.com/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal)
+1. [Add IP address of your computer into allowlist of firewall of Azure SQL Server](https://learn.microsoft.com/azure/azure-sql/database/firewall-configure#from-the-database-overview-page)
+1. Use [query editor](https://learn.microsoft.com/azure/azure-sql/database/connect-query-portal) with below query to create tables:
     ```sql
     CREATE TABLE [TeamPostEntity](
 	    [PostID] [int] PRIMARY KEY IDENTITY,
@@ -103,8 +103,6 @@ To debug the project, you will need to configure an Azure SQL Database to be use
     ```
 1. Open Debug View (`Ctrl+Shift+D`) and select "Debug (Edge)" or "Debug (Chrome)" in dropdown list.
 1. Press "F5" to open a browser window and then select your package to view share now sample app.
-
-
 
 ## Version History
 
