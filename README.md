@@ -14,7 +14,7 @@ Share Now helps colleagues exchange information in Microsoft Teams. Users can sh
 
 ## Prerequisites
 - [Node.js](https://nodejs.org/), supported versions: 16, 18
-- A Microsoft 365 account. If you do not have one, apply through the [Microsoft 365 Developer Program](https://developer.microsoft.com/en-us/microsoft-365/dev-program)
+- A Microsoft 365 account. If you do not have one, sign up through the [Microsoft 365 Developer Program](https://developer.microsoft.com/en-us/microsoft-365/dev-program)
 - [Teams Toolkit for Visual Studio Code](https://aka.ms/teams-toolkit) version 5.0.0 or later, or [TeamsFx CLI](https://aka.ms/teamsfx-cli)
 - An [Azure subscription](https://azure.microsoft.com/en-us/free/)
 
@@ -33,7 +33,7 @@ Share Now helps colleagues exchange information in Microsoft Teams. Users can sh
 1. Open the command palette and select `Teams: Provision`. The toolkit provisions the Azure resources, including Azure SQL.
 1. After provisioning completes, open the command palette and select `Teams: Deploy`.
 1. Open **env/.env.dev** and find the database name in `PROVISIONOUTPUT__AZURESQLOUTPUT__DATABASENAME`. Then [add your computer IP address to the server-level firewall rule from the database overview page](https://docs.microsoft.com/en-us/azure/azure-sql/database/firewall-configure#from-the-database-overview-page).
-1. In the Azure portal, find the database named by `PROVISIONOUTPUT__AZURESQLOUTPUT__DATABASENAME` and use [Query editor](https://docs.microsoft.com/en-us/azure/azure-sql/database/connect-query-portal) with the following SQL to create the tables:
+1. In the Azure portal, locate the database using the value in `PROVISIONOUTPUT__AZURESQLOUTPUT__DATABASENAME`, then use [Query editor](https://docs.microsoft.com/en-us/azure/azure-sql/database/connect-query-portal) with the following SQL to create the tables:
     ```sql
     CREATE TABLE [TeamPostEntity](
 	    [PostID] [int] PRIMARY KEY IDENTITY,
