@@ -67,7 +67,7 @@ Share Now helps colleagues exchange information in Microsoft Teams. Users can sh
 1. Update content that you created by selecting the three-dot menu (`...`) and then `Update`.
 1. Delete content that you created by selecting the three-dot menu (`...`) and then `Delete`.
 1. Add or remove your vote by selecting the ![vote icon](images/voteIconME.png) icon on a post.
-1. Search all content or only your own content in the compose box or command box by filtering on the title or tags.
+1. Search all content or only `posted-by-me` content in the compose box or command box by filtering on the title or tags.
 
 ### (Optional) Run the app locally
 To debug the project locally, configure an Azure SQL Database:
