@@ -33,7 +33,7 @@ Share Now helps colleagues exchange information in Microsoft Teams. Users can sh
 1. Open the command palette and select `Teams: Provision`. The toolkit provisions the Azure resources, including Azure SQL.
 1. After provisioning completes, open the command palette and select `Teams: Deploy`.
 1. Open **env/.env.dev** and find the database name in `PROVISIONOUTPUT__AZURESQLOUTPUT__DATABASENAME`. Then [add your computer IP address to the server-level firewall rule from the database overview page](https://docs.microsoft.com/en-us/azure/azure-sql/database/firewall-configure#from-the-database-overview-page).
-1. In the Azure portal, find the database by `databaseName` and use [Query editor](https://docs.microsoft.com/en-us/azure/azure-sql/database/connect-query-portal) with the following SQL to create the tables:
+1. In the Azure portal, find the database named by `PROVISIONOUTPUT__AZURESQLOUTPUT__DATABASENAME` and use [Query editor](https://docs.microsoft.com/en-us/azure/azure-sql/database/connect-query-portal) with the following SQL to create the tables:
     ```sql
     CREATE TABLE [TeamPostEntity](
 	    [PostID] [int] PRIMARY KEY IDENTITY,
