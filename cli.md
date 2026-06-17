@@ -16,7 +16,7 @@
     ```
     teamsfx deploy
     ```
-6. Open **env/.env.dev** file, you could get the database name in `PROVISIONOUTPUT__AZURESQLOUTPUT__DATABASENAME` output. In Azure portal, find the database and use [query editor](https://docs.microsoft.com/en-us/azure/azure-sql/database/connect-query-portal) with below query to create tables:
+6. Open **env/.env.dev** file, you could get the database name in `PROVISIONOUTPUT__AZURESQLOUTPUT__DATABASENAME` output. In Azure portal, find the database and use [query editor](https://learn.microsoft.com/azure/azure-sql/database/connect-query-portal) with below query to create tables:
     ```sql
     CREATE TABLE [TeamPostEntity](
 	    [PostID] [int] PRIMARY KEY IDENTITY,
