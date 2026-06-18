@@ -125,7 +125,7 @@ function getPostRequest(req: HttpRequest) {
   let res = new PostRequest();
   res.type = req.body.type ?? 1;
   res.title = req.body.title ?? "automatic post";
-  res.description = req.body.description ?? "hello";
+  res.description = req.body.description ?? "hi";
   res.contentUrl = req.body.contentUrl ?? "https://bing.com";
   res.tags = req.body.tags ?? "red;blue";
 
